@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: ZoneCapitalNFT
-    network: chapel
+    network: ropsten
     source:
-      address: "0x2532Ee835025f73032d6478c8AEcFD7Fc56F8112"
       abi: ZoneCapitalNFT
-      startBlock: 18646932
+      address: "0x095413F42dC9eE4be1183A0F39868240a2DeA64a"
+      startBlock: 12226243
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5

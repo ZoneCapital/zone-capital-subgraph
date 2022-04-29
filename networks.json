@@ -1,7 +1,20 @@
 {
   "chapel": {
     "ZoneCapitalNFT": {
-      "address": "0x4d29C5b0b95068d3Ca1963e9D9d9fF78578a270D"
+      "address": "0x2c1EfBF99Dbb6C5F7F4830709F9A54A1d6497bD7",
+      "startBlock": 18838496
+    }
+  },
+  "ropsten": {
+    "ZoneCapitalNFT": {
+      "address": "0x095413F42dC9eE4be1183A0F39868240a2DeA64a",
+      "startBlock": 12226243
+    }
+  },
+  "local": {
+    "ZoneCapitalNFT": {
+      "address": "0xaB7B4c595d3cE8C85e16DA86630f2fc223B05057",
+      "startBlock": 14673440
     }
   }
 }

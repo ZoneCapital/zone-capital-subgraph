@@ -1,13 +1,18 @@
 {
-  "name": "ZoneCapitalSubGraph",
+  "name": "zone-capital-subgraph",
   "license": "UNLICENSED",
   "scripts": {
     "codegen": "graph codegen",
-    "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ ZoneCapital/ZoneCapitalSubGraph",
-    "create-local": "graph create --node http://localhost:8020/ ZoneCapital/ZoneCapitalSubGraph",
-    "remove-local": "graph remove --node http://localhost:8020/ ZoneCapital/ZoneCapitalSubGraph",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 ZoneCapital/ZoneCapitalSubGraph"
+    "build:chapel": "graph build --network chapel",
+    "deploy:chapel": "npm run build:chapel && graph deploy --product hosted-service ZoneCapital/zone-capital-subgraph",
+
+    "build:ropsten": "graph build --network ropsten",
+    "deploy:ropsten": "npm run build:ropsten && graph deploy --product hosted-service ZoneCapital/zone-capital-ropsten",
+
+    "create:local": "graph create --node http://localhost:8020/ ZoneCapital/zone-capital-subgraph",
+    "remove:local": "graph remove --node http://localhost:8020/ ZoneCapital/zone-capital-subgraph",
+    "build:local": "graph build --network local",
+    "deploy:local": "npm run build:local && graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 ZoneCapital/zone-capital-subgraph"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.29.0",
