@@ -1,6 +1,8 @@
 type ZoneCapitalNFT @entity {
   id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  approved: Bytes! # address
+  owner: Bytes!
+  approved: Bytes!
+  copied: Int!
+  originalNft: ZoneCapitalNFT
+  createdAt: BigInt!
 }

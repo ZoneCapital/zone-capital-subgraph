@@ -2,7 +2,7 @@ specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
-  - kind: ethereum
+  - kind: ethereum/contract
     name: ZoneCapitalNFT
     network: ropsten
     source:
@@ -14,12 +14,7 @@ dataSources:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - ApprovalForAll
-        - FactoryAdded
-        - FactoryRemoved
-        - OwnershipTransferred
-        - Transfer
+        - ZoneCapitalNFT
       abis:
         - name: ZoneCapitalNFT
           file: ./abis/ZoneCapitalNFT.json
@@ -36,4 +31,27 @@ dataSources:
           handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: ./src/mapping.ts
+      file: ./src/mappings/ZoneCapitalNFT.ts
+  - kind: ethereum/contract
+    name: ZoneCapitalFactory
+    network: ropsten
+    source:
+      abi: ZoneCapitalFactory
+      address: "0x8C6ce142ba77126e5082A15A69822263aF5805B8"
+      startBlock: 12226254
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - ZoneCapitalNFT
+        - OperatorResolver
+      abis:
+        - name: ZoneCapitalFactory
+          file: ./abis/ZoneCapitalFactory.json
+      eventHandlers:
+        - event: NftCreated(indexed uint256,uint256)
+          handler: handleNftCreated
+        - event: NftUpdated(indexed uint256)
+          handler: handleNftUpdated
+      file: ./src/mappings/ZoneCapitalFactory.ts

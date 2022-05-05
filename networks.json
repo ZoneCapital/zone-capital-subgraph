@@ -9,6 +9,10 @@
     "ZoneCapitalNFT": {
       "address": "0x095413F42dC9eE4be1183A0F39868240a2DeA64a",
       "startBlock": 12226243
+    },
+    "ZoneCapitalFactory": {
+      "address": "0x8C6ce142ba77126e5082A15A69822263aF5805B8",
+      "startBlock": 12226254
     }
   },
   "local": {
