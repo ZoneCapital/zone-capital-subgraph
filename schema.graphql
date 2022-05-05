@@ -1,8 +1,17 @@
-type ZoneCapitalNFT @entity {
-  id: ID!
+type Portfolio @entity {
+  id: ID! # NFT tokenId
   owner: Bytes!
   approved: Bytes!
   copied: Int!
-  originalNft: ZoneCapitalNFT
   createdAt: BigInt!
+  original: Portfolio
+  holdingAssets: [HoldingAsset!] @derivedFrom(field: "portfolio")
+}
+
+type HoldingAsset @entity {
+  id: ID!
+  portfolio: Portfolio!
+  token: Bytes!
+  amount: BigInt!
+  portfolioAddress: Bytes!
 }

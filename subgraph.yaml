@@ -14,7 +14,7 @@ dataSources:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - ZoneCapitalNFT
+        - Portfolio
       abis:
         - name: ZoneCapitalNFT
           file: ./abis/ZoneCapitalNFT.json
@@ -44,8 +44,7 @@ dataSources:
       apiVersion: 0.0.5
       language: wasm/assemblyscript
       entities:
-        - ZoneCapitalNFT
-        - OperatorResolver
+        - Portfolio
       abis:
         - name: ZoneCapitalFactory
           file: ./abis/ZoneCapitalFactory.json
@@ -55,3 +54,23 @@ dataSources:
         - event: NftUpdated(indexed uint256)
           handler: handleNftUpdated
       file: ./src/mappings/ZoneCapitalFactory.ts
+  - kind: ethereum/contract
+    name: ZoneCapitalHolding
+    network: ropsten
+    source:
+      abi: ZoneCapitalHolding
+      address: "0x0dF67306218B4B0EE681B7256ac8Ab4164F3213a"
+      startBlock: 12226248
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Portfolio
+      abis:
+        - name: ZoneCapitalHolding
+          file: ./abis/ZoneCapitalHolding.json
+      eventHandlers:
+        - event: PorfolioAssetStored(uint256,address,uint256,address)
+          handler: handlePorfolioAssetStored
+      file: ./src/mappings/ZoneCapitalHolding.ts

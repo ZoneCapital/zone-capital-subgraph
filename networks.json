@@ -13,6 +13,10 @@
     "ZoneCapitalFactory": {
       "address": "0x8C6ce142ba77126e5082A15A69822263aF5805B8",
       "startBlock": 12226254
+    },
+    "ZoneCapitalHolding": {
+      "address": "0x0dF67306218B4B0EE681B7256ac8Ab4164F3213a",
+      "startBlock": 12226248
     }
   },
   "local": {
